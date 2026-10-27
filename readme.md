@@ -24,11 +24,10 @@
 
 <div align="center">
 
-[![Watch Demo Video](https://img.shields.io/badge/YouTube-Watch%20Live%20Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](YOUR_VIDEO_LINK_HERE)
 
-> 🎥 **Video Link:** [Click here to watch the full BhatChat Demo Walkthrough](YOUR_VIDEO_LINK_HERE)
->
-> *(Paste your video link above by replacing `YOUR_VIDEO_LINK_HERE`)*
+
+> 🎥 **Video Link:** [Click here to watch the full BhatChat Demo Walkthrough](https://drive.google.com/file/d/1Ot0-NThfZZWc_V_GZVg0_wX_ucUtNovD/view?usp=drive_link)
+
 
 </div>
 
@@ -220,5 +219,4 @@ Special thanks and sincere credit to:
 
 ## 📄 License
 
-This project is licensed under the [ISC License](LICENSE).
 Feel free to customize, learn from, and build upon it!
