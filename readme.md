@@ -26,7 +26,7 @@
 
 
 
-> 🎥 **Video Link:** [Click here to watch the full BhatChat Demo Walkthrough](https://drive.google.com/drive/folders/1S1CPB0IaKeaRT4vVBy18gXuNqBG8NZFg?usp=sharing)
+> 🎥 **Video Link:** [Click here to watch the full BhatChat Demo Walkthrough](https://www.loom.com/share/b286cddda32f4a64af755cee04744d75)
 
 
 </div>
