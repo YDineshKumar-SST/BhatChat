@@ -1,12 +1,26 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="night">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>BhatChat — Modern Real-Time Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          const savedTheme = localStorage.getItem("bhatchat_theme") || "night";
+          document.documentElement.setAttribute("data-theme", savedTheme);
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body>
+  <body class="font-sans antialiased selection:bg-primary/20 selection:text-primary">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

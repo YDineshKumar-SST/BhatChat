@@ -13,7 +13,17 @@ export default {
     daisyui,
   ],
   daisyui: {
-    themes: ["light", "dark", "cupcake"],
+    themes: [
+      "night",
+      "dark",
+      "luxury",
+      "synthwave",
+      "cyberpunk",
+      "dracula",
+      "forest",
+      "cupcake",
+      "light",
+    ],
   },
 }
 

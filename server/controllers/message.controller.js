@@ -2,7 +2,7 @@ import Message from "../models/message.model.js";
 import Conversation from "../models/conversation.model.js";
 import { asyncHandler } from "../utilities/asyncHandler.utility.js";
 import { errorHandler } from "../utilities/errorHandler.utility.js";
-import {getSocketId, io} from '../socket/socket.js'
+import { getSocketId, getSocketIds, io } from "../socket/socket.js";
 
 export const sendMessage = asyncHandler(async (req, res, next) => {
   const senderId = req.user._id;
@@ -34,9 +34,11 @@ export const sendMessage = asyncHandler(async (req, res, next) => {
     await conversation.save();
   }
 
-  // socket.io
-  const socketId = getSocketId(receiverId)
-  io.to(socketId).emit("newMessage", newMessage);
+  // socket.io: emit to all receiver sockets if online
+  const receiverSockets = getSocketIds(receiverId);
+  receiverSockets.forEach((sId) => {
+    io.to(sId).emit("newMessage", newMessage);
+  });
 
   res.status(200).json({
     success: true,
@@ -52,7 +54,7 @@ export const getMessages = asyncHandler(async (req, res, next) => {
     return next(new errorHandler("All fields are required", 400));
   }
 
-  let conversation = await Conversation.findOne({
+  const conversation = await Conversation.findOne({
     participants: { $all: [myId, otherParticipantId] },
   }).populate("messages");
 

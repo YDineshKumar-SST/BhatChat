@@ -87,3 +87,23 @@ export const getOtherUsersThunk = createAsyncThunk(
     }
   }
 );
+
+export const updateProfileThunk = createAsyncThunk(
+  "user/updateProfile",
+  async (profileData, { rejectWithValue }) => {
+    try {
+      const response = await axiosInstance.put(
+        "/user/update-profile",
+        profileData
+      );
+      toast.success(response.data?.message || "Profile updated successfully!");
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      const errorOutput =
+        error?.response?.data?.errMessage || "Failed to update profile";
+      toast.error(errorOutput);
+      return rejectWithValue(errorOutput);
+    }
+  }
+);

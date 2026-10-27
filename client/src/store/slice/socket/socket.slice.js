@@ -1,30 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
-import io from "socket.io-client";
 
 const initialState = {
-  socket: null,
-  onlineUsers: null,
+  onlineUsers: [],
+  typingUsers: [],
 };
 
 export const socketSlice = createSlice({
   name: "socket",
   initialState,
   reducers: {
-    initializeSocket: (state, action) => {
-      const socket = io(import.meta.env.VITE_DB_ORIGIN, {
-        query: {
-          userId: action.payload,
-        },
-      });
-      state.socket = socket;
-    },
-
     setOnlineUsers: (state, action) => {
-      state.onlineUsers = action.payload;
+      state.onlineUsers = action.payload || [];
+    },
+    setUserTyping: (state, action) => {
+      if (!state.typingUsers.includes(action.payload)) {
+        state.typingUsers.push(action.payload);
+      }
+    },
+    setUserStopTyping: (state, action) => {
+      state.typingUsers = state.typingUsers.filter((id) => id !== action.payload);
     },
   },
 });
 
-export const { initializeSocket, setOnlineUsers } = socketSlice.actions;
+export const { setOnlineUsers, setUserTyping, setUserStopTyping } =
+  socketSlice.actions;
 
 export default socketSlice.reducer;

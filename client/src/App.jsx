@@ -5,14 +5,11 @@ import { useDispatch } from "react-redux";
 import { getUserProfileThunk } from "./store/slice/user/user.thunk";
 
 function App() {
-  
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      await dispatch(getUserProfileThunk());
-    })();
-  }, []);
+    dispatch(getUserProfileThunk());
+  }, [dispatch]);
 
   return (
     <>
